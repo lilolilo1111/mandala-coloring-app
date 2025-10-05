@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Image Selector Styles */
+.image-selector {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.image-selector h3 {
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.mandala-options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.mandala-option {
+    cursor: pointer;
+    padding: 15px;
+    border: 3px solid transparent;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.mandala-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+.mandala-option.selected {
+    border-color: #667eea;
+    background: #e8f2ff;
+    transform: translateY(-3px);
+}
+
+.mandala-thumbnail {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.mandala-option p {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+}
+
+/* Toolbar Styles */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.tool-section, .color-section, .size-section, .action-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.toolbar h4 {
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.tools {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tool-button, .action-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 70px;
+}
+
+.tool-button:hover, .action-button:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tool-button.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.tool-icon {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.tool-name {
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+/* Color Swatches */
+.color-swatches {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #ddd;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.color-swatch.active {
+    border-color: #333;
+    transform: scale(1.15);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.color-swatch.active::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Size Control */
+.size-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#brushSize {
+    width: 100px;
+    accent-color: #667eea;
+}
+
+#sizeDisplay {
+    background: #667eea;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Canvas Container */
+.canvas-container {
+    text-align: center;
+    margin: 30px 0;
+    position: relative;
+}
+
+#canvas {
+    border: 3px solid #ddd;
+    border-radius: 15px;
+    cursor: crosshair;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.loading-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.9);
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Instructions */
+.instructions {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.instructions h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.instructions ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.instructions li {
+    padding: 8px 0;
+    color: #555;
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .toolbar {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .mandala-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #canvas {
+        max-width: 100%;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+}
+
+/* Cursor styles for different tools */
+.cursor-brush { cursor: crosshair; }
+.cursor-pen { cursor: crosshair; }
+.cursor-eraser { cursor: grab; }
+.cursor-bucket { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="black" d="M12 2l3.09 6.26L22 9l-5 4.87L18.18 22 12 18.77 5.82 22 7 13.87 2 9l6.91-.74L12 2z"/></svg>') 12 12, auto; }

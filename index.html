@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandala Coloring App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1> Mandala Coloring Studio</h1>
+        
+        <!-- Image Selector -->
+        <div class="image-selector">
+            <h3>Choose Your Mandala:</h3>
+            <div class="mandala-options">
+                <div class="mandala-option" data-image="images/mandala1.png">
+                    <img src="images/mandala1.png" alt="Mandala 1" class="mandala-thumbnail">
+                    <p>Mandala 1</p>
+                </div>
+                <div class="mandala-option" data-image="images/mandala2.png">
+                    <img src="images/mandala2.png" alt="Mandala 2" class="mandala-thumbnail">
+                    <p>Mandala 2</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="tool-section">
+                <h4>Tools:</h4>
+                <div class="tools">
+                    <button class="tool-button active" data-tool="brush" title="Brush">
+                        <span class="tool-icon">🖌️</span>
+                        <span class="tool-name">Brush</span>
+                    </button>
+                    <button class="tool-button" data-tool="pen" title="Pen">
+                        <span class="tool-icon">✏️</span>
+                        <span class="tool-name">Pen</span>
+                    </button>
+                    <button class="tool-button" data-tool="eraser" title="Eraser">
+                        <span class="tool-icon">🧹</span>
+                        <span class="tool-name">Eraser</span>
+                    </button>
+                    <button class="tool-button" data-tool="bucket" title="Paint Bucket">
+                        <span class="tool-icon">🪣</span>
+                        <span class="tool-name">Fill</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="color-section">
+                <h4>Colors:</h4>
+                <div class="color-swatches">
+                    <div class="color-swatch active" data-color="#FF6B6B" style="background-color: #FF6B6B;" title="Red"></div>
+                    <div class="color-swatch" data-color="#4ECDC4" style="background-color: #4ECDC4;" title="Turquoise"></div>
+                    <div class="color-swatch" data-color="#45B7D1" style="background-color: #45B7D1;" title="Blue"></div>
+                    <div class="color-swatch" data-color="#96CEB4" style="background-color: #96CEB4;" title="Green"></div>
+                    <div class="color-swatch" data-color="#FFEAA7" style="background-color: #FFEAA7;" title="Yellow"></div>
+                    <div class="color-swatch" data-color="#DDA0DD" style="background-color: #DDA0DD;" title="Purple"></div>
+                </div>
+            </div>
+            
+            <div class="size-section">
+                <h4>Brush Size:</h4>
+                <div class="size-control">
+                    <input type="range" id="brushSize" min="1" max="20" value="3">
+                    <span id="sizeDisplay">3</span>
+                </div>
+            </div>
+            
+            <div class="action-section">
+                <button class="action-button" onclick="clearCanvas()" title="Clear Canvas">
+                    <span class="tool-icon">🗑️</span>
+                    <span class="tool-name">Clear</span>
+                </button>
+                <button class="action-button" onclick="resetToOriginal()" title="Reset to Original">
+                    <span class="tool-icon">🔄</span>
+                    <span class="tool-name">Reset</span>
+                </button>
+                <button class="action-button" onclick="saveImage()" title="Save Image">
+                    <span class="tool-icon">💾</span>
+                    <span class="tool-name">Save</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Canvas Container -->
+        <div class="canvas-container">
+            <canvas id="canvas" width="800" height="800"></canvas>
+            <div class="loading-message" id="loadingMessage" style="display: none;">
+                Loading mandala...
+            </div>
+        </div>
+        
+        <!-- Instructions -->
+        <div class="instructions">
+            <h4>How to Use:</h4>
+            <ul>
+                <li>🖼️ Select a mandala design from above</li>
+                <li>🎨 Choose a color from the 6 color swatches</li>
+                <li>🪣 Use the Paint Bucket to fill enclosed areas</li>
+                <li>🖌️ Use Brush/Pen for detailed coloring</li>
+                <li>🧹 Use Eraser to remove colors</li>
+                <li>💾 Save your masterpiece when done!</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
